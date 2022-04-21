@@ -1,3 +1,3 @@
-module github.com/linked_list
+module github.com/yoshdog/data-structures
 
 go 1.18
