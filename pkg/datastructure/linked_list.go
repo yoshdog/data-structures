@@ -1,29 +1,29 @@
 package datastructure
 
 type Node[T comparable] struct {
-	value T
-	next  *Node[T]
+	data T
+	next *Node[T]
 }
 
 type LinkedList[T comparable] struct {
 	head *Node[T]
 }
 
-func (l *LinkedList[T]) Prepend(value T) {
+func (l *LinkedList[T]) Prepend(data T) {
 	oldHead := l.head
-	l.head = &Node[T]{value: value, next: oldHead}
+	l.head = &Node[T]{data: data, next: oldHead}
 }
 
-func (l *LinkedList[T]) Delete(value T) {
+func (l *LinkedList[T]) Delete(data T) {
 	currentNode := l.head
 
-	if currentNode.value == value {
+	if currentNode.data == data {
 		l.head = l.head.next
 		return
 	}
 
 	for currentNode.next != nil {
-		if currentNode.next.value == value {
+		if currentNode.next.data == data {
 			currentNode.next = currentNode.next.next
 			return
 		}
@@ -31,6 +31,6 @@ func (l *LinkedList[T]) Delete(value T) {
 	}
 }
 
-func (l *LinkedList[T]) Search(value T) bool {
+func (l *LinkedList[T]) Search(data T) bool {
 	return false
 }
